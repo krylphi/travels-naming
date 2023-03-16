@@ -15,7 +15,7 @@ func GetApiKey() (string, error) {
 	if apiKey == "" {
 		return "", errMissingApiKey
 	}
-	err := os.Unsetenv(apiKeyEnv)
+	err := os.Unsetenv(apiKeyEnv) // we don't want API key to be present in environments longer than we need
 	if err != nil {
 		log.Printf("failed to unset [%s] environment variable", apiKeyEnv)
 	}

@@ -50,7 +50,7 @@ func (p *Processor) Process(date, lat, lon string) (string, error) {
 		location = geoData.Items[0].Address.County
 	}
 
-	epithet := EpithetFromTime(eventDate, location)
+	epithet := epithetFromTime(eventDate, location)
 
 	return epithet, nil
 }

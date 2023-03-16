@@ -32,7 +32,7 @@ func newRandomizer(t time.Time) *randomizer {
 	}
 }
 
-func EpithetFromTime(t time.Time, location string) string {
+func epithetFromTime(t time.Time, location string) string {
 	now := time.Now()
 	random := newRandomizer(now)
 	return epithetFunction(random, now, t, location)
