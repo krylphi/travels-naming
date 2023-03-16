@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"strings"
+	"unicode"
 )
 
 func Concat(strs ...string) string {
@@ -25,4 +26,16 @@ func CloseOrLog(c io.Closer) {
 	if err != nil {
 		log.Println("RevGeoCode failed to close response body")
 	}
+}
+
+func Title(sb strings.Builder) string {
+	sep := " "
+	ss := strings.SplitN(sb.String(), sep, 2)
+	r := []rune(ss[0])
+	r[0] = unicode.ToUpper(r[0])
+	sb.Reset()
+	sb.WriteString(string(r))
+	sb.WriteString(sep)
+	sb.WriteString(ss[1])
+	return sb.String()
 }
